@@ -172,6 +172,11 @@ def _run_analysis(analysis_id: str, csv_text: str, filename: str) -> None:
             },
             context={"csv_data": csv_text},
         )
+        messages = state.get("messages", []) if isinstance(state, dict) else []
+        answer = next(
+            (text for message in reversed(messages) if (text := _message_text(message))),
+            "",
+        )
         paths = _local_artifacts(backend, output_dir)
         with _lock:
             job.update(
@@ -180,9 +185,10 @@ def _run_analysis(analysis_id: str, csv_text: str, filename: str) -> None:
         result = _artifact_result(
             analysis_id, output_dir, len(pd.read_csv(StringIO(csv_text)))
         )
+        result["answer"] = answer
         with _lock:
             _sessions[analysis_id] = (graph, backend)
-            job["conversation"] = state.get("messages", [])
+            job["conversation"] = messages
         with _lock:
             job.update(
                 status="completed",

@@ -9,9 +9,9 @@ from sqlalchemy.engine import URL
 load_dotenv()
 
 DB_Host = "localhost"
-DB_Port = "5432"
-DB_Name = "data_cleaning"
-DB_User = "postgres"
+DB_Port = "3306"
+DB_Name = "data_analyst"
+DB_User = "root"
 
 
 def get_database_url() -> URL:

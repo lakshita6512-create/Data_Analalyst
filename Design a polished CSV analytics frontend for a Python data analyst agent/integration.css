@@ -9,6 +9,8 @@
 .metric-foot { min-height: 22px; }
 .dataset-actions button:disabled { cursor: not-allowed; opacity: .55; }
 .artifact-panel { margin-top: 18px; }
+.answer-panel { margin-top: 18px; }
+.answer-panel > p { margin: 14px 18px 18px; color: var(--ink); font-size: 13px; line-height: 1.7; white-space: pre-wrap; }
 .artifact-panel > p { color: var(--muted); font-size: 13px; }
 .artifact-links { display: flex; flex-wrap: wrap; gap: 9px; }
 .artifact-link { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid var(--line); border-radius: 9px; color: var(--ink); background: var(--paper); text-decoration: none; text-transform: capitalize; font-size: 12px; font-weight: 600; }

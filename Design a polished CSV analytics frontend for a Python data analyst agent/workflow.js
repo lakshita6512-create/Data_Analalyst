@@ -87,6 +87,8 @@
     renderCSV(rows, file.name);
     renderMetrics(result);
     renderArtifacts(result);
+    $('#analysis-answer').textContent = result.answer || 'The dashboard was generated, but the analyst did not return a written summary. You can still explore the charts and ask a follow-up question.';
+    $('#analysis-answer-panel').hidden = false;
     const frame = $('#plotly-frame');
     frame.src = new URL(result.dashboard_url, apiBase()).href;
     $('#plotly-dashboard-panel').hidden = false;
@@ -105,6 +107,8 @@
     if (classification === 'private') { toast('Private data is blocked from analysis.'); return; }
     activeAnalysisId = null;
     $('#ask-btn').disabled = true;
+    $('#analysis-answer-panel').hidden = true;
+    $('#analysis-answer').textContent = '';
     $('#plotly-dashboard-panel').hidden = true;
     $('#artifact-links').replaceChildren();
     $('#artifact-empty').hidden = false;

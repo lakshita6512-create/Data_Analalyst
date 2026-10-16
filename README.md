@@ -1,8 +1,9 @@
 # Fieldnote | Local CSV analysis workspace
 
 Fieldnote turns an approved CSV into a data quality profile, a reviewed exploratory analysis, an interactive dashboard, and a set of downloadable files. It combines a browser interface with a local Python service and a separate command-line workflow.
+ 
+ [Watch the demo here](./demo.mp4)
 
-> **Project lineage:** This submission adapts work originally created by **[author name]** and shared with permission. Original project or repository: **[link]**. The interface and project documentation have been redesigned for this submission. Replace the bracketed details with the author’s preferred credit before submitting.
 
 ## What it does
 
@@ -15,6 +16,10 @@ Fieldnote turns an approved CSV into a data quality profile, a reviewed explorat
 - Provides a separate CLI workflow for a bundled CSV, PostgreSQL query results, or API JSON data. Database and API credentials stay on the host; hosted analysis accepts only sample or explicitly public data.
 
 This project performs exploratory data analysis. It does not train a model or create a train/test split.
+
+## Demo
+
+[Watch the silent Fieldnote demo](./demo-silent.mp4)
 
 ## How a browser analysis runs
 
@@ -158,15 +163,6 @@ Database and API results default to private and are blocked unless explicitly cl
 └── artifacts/                      Local analysis outputs
 ```
 
-## Known limits
 
-- The browser application accepts CSV files only and enforces a 25 MB upload limit.
-- The CLI supports CSV, database, and API inputs, but its database and API modes need source credentials and an available Managed Deep Agent deployment.
-- Only sample or explicitly public data may be sent for hosted analysis; private or unclassified data is blocked.
-- Local browser analysis sessions are held in memory. Restarting the API clears active analyses and follow-up context.
-- At most four chart requests are included in a dashboard; additional requests are recorded as omitted.
-- Test files are excluded by `.gitignore` and are not included in a Git checkout.
 
-## Credit and license
 
-This repository is an adaptation of work shared by **[author name]**, with the author’s permission. Please add the source repository or project link the author wants credited: **[original project URL]**. This repository does not currently include a license file; permission to use the original project does not itself establish a license for redistribution. Confirm the terms that apply to your submission and retain any required notices.
